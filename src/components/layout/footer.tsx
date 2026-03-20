@@ -110,9 +110,8 @@ export default function Footer() {
                 href="https://digitaltalisman.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent/80 hover:text-accent transition-colors font-medium"
               >
-                Digital Talisman
+                <span className="inline-block bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-fuchsia-500 bg-[length:200%_auto] animate-gradient-wave bg-clip-text text-transparent font-semibold">Digital Talisman</span>
               </a>
             </p>
           </div>
