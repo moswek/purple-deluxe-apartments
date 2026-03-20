@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "url": "https://i.imgur.com/x0TA3So.jpeg",
+    "width": 1920,
+    "height": 1080,
+    "alt": "Luxury apartment exterior of Purple Deluxe Apartments",
+    "hint": "luxury apartment building"
+  },
+  "about": {
+    "url": "https://i.imgur.com/qOmvpHW.jpeg",
+    "width": 600,
+    "height": 700,
+    "alt": "Luxurious lounge area in a furnished apartment",
+    "hint": "luxurious lounge"
+  },
+  "location": {
+    "url": "https://i.imgur.com/TceuUpX.jpeg",
+    "width": 800,
+    "height": 600,
+    "alt": "Map of Kampala showing location of Purple Deluxe Apartments",
+    "hint": "map kampala"
+  },
+  "suites": {
+    "royalSovereign": [
+      { "url": "https://i.imgur.com/ktmWMZZ.jpeg", "hint": "luxury living room" },
+      { "url": "https://i.imgur.com/qr0d1GX.jpeg", "hint": "marble bathroom" },
+      { "url": "https://i.imgur.com/AtT8akd.jpeg", "hint": "city view balcony" }
+    ],
+    "goldenCrest": [
+      { "url": "https://i.imgur.com/T5j9fUV.jpeg", "hint": "elegant hotel room" },
+      { "url": "https://i.imgur.com/cBzkTOj.jpeg", "hint": "golden decor" },
+      { "url": "https://i.imgur.com/LPg9dDW.jpeg", "hint": "sunlit living area" }
+    ],
+    "amethystDream": [
+      { "url": "https://i.imgur.com/iriY5zE.jpeg", "hint": "modern apartment interior" },
+      { "url": "https://i.imgur.com/9UGmYlA.jpeg", "hint": "purple accents" },
+      { "url": "https://i.imgur.com/uhkYmzQ.jpeg", "hint": "spacious kitchen" }
+    ]
+  }
+}
