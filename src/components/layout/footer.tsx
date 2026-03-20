@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, X, Linkedin } from 'lucide-react';
 
 const socialLinks = [
-  { href: '#', icon: Facebook },
-  { href: '#', icon: Instagram },
-  { href: '#', icon: Twitter },
-  { href: '#', icon: Linkedin },
+  { href: '#', icon: Facebook, label: 'Facebook' },
+  { href: '#', icon: Instagram, label: 'Instagram' },
+  { href: '#', icon: X, label: 'X' },
+  { href: '#', icon: Linkedin, label: 'LinkedIn' },
 ];
 
 const quickLinks = [
@@ -82,7 +82,7 @@ export default function Footer() {
                   key={index}
                   href={social.href}
                   className="w-9 h-9 rounded-full border border-border/40 flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/40 transition-all duration-300"
-                  aria-label={social.icon.displayName}
+                  aria-label={social.label}
                 >
                   <social.icon className="w-3.5 h-3.5" />
                 </Link>
