@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
+import { WhatsAppFloat } from '@/components/ui/whatsapp-float';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -68,6 +69,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <WhatsAppFloat />
         <Toaster />
       </body>
     </html>
