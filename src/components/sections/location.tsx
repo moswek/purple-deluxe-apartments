@@ -1,63 +1,80 @@
+'use client';
+
 import Image from 'next/image';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { Button } from '@/components/ui/button';
+import { Reveal, StaggerReveal, StaggerItem } from '@/components/ui/reveal';
 import { MapPin, ArrowRight } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 import images from '@/app/lib/placeholder-images.json';
+import { MagneticButton } from '@/components/ui/magnetic-button';
+import { motion } from 'framer-motion';
+
+const landmarks = [
+  { name: 'Acacia Mall', distance: '15 min drive' },
+  { name: 'Uganda Museum', distance: '20 min drive' },
+  { name: 'Kasubi Tombs', distance: '25 min drive' },
+];
 
 export default function Location() {
   return (
-    <section id="location" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Discover Kampala from Our Doorstep"
-          subtitle="Perfectly positioned in Kyanja, our serene location offers both tranquility and convenient access to the vibrant life of Uganda's capital."
-        />
-        <Card className="overflow-hidden shadow-2xl rounded-2xl border-0 bg-card/60 backdrop-blur-xl">
-          <CardContent className="p-0">
-            <div className="grid md:grid-cols-5">
-              <div className="md:col-span-3">
-                <Image
-                  src={images.location.url}
-                  alt={images.location.alt}
-                  width={images.location.width}
-                  height={images.location.height}
-                  className="object-cover w-full h-full min-h-[400px]"
-                  data-ai-hint={images.location.hint}
-                />
-              </div>
-              <div className="md:col-span-2 bg-secondary/80 p-8 md:p-12 flex flex-col justify-center">
-                <h3 className="text-3xl font-bold mb-4 text-foreground">
-                  Your Gateway to Adventure
-                </h3>
-                <p className="mb-6 text-muted-foreground">
-                  Whether you seek bustling markets, historic sites, or chic cafes, the best of Kampala is just moments away.
-                </p>
-                <div className="space-y-4 text-sm">
-                  <div className="flex items-center gap-3">
-                    <span className="font-semibold text-primary">Acacia Mall:</span>
-                    <span className="text-muted-foreground">15 min drive</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                     <span className="font-semibold text-primary">Uganda Museum:</span>
-                     <span className="text-muted-foreground">20 min drive</span>
-                  </div>
-                   <div className="flex items-center gap-3">
-                     <span className="font-semibold text-primary">Kasubi Tombs:</span>
-                     <span className="text-muted-foreground">25 min drive</span>
-                  </div>
-                </div>
-                <Button asChild className="mt-8" size="lg">
-                  <a href="https://www.google.com/maps/search/?api=1&query=Purple+Deluxe+Apartments+Kyanja+Kampala" target="_blank" rel="noopener noreferrer">
-                    <MapPin className="mr-2 h-4 w-4" />
-                    Get Directions
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
+    <section id="location" className="section-padding bg-secondary relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary via-secondary to-background/50" aria-hidden="true" />
+
+      <div className="container-luxury relative">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Location"
+            title="Discover Kampala from Our Doorstep"
+            subtitle="Perfectly positioned in Kyanja, our serene location offers both tranquility and convenient access to the vibrant life of Uganda's capital."
+          />
+        </Reveal>
+
+        <div className="grid lg:grid-cols-12 gap-0">
+          <Reveal direction="left" delay={0.2} className="lg:col-span-7">
+            <div className="relative aspect-[16/10] lg:aspect-auto lg:h-full overflow-hidden rounded-sm lg:rounded-r-none">
+              <Image
+                src={images.location.url}
+                alt={images.location.alt}
+                width={images.location.width}
+                height={images.location.height}
+                className="object-cover w-full h-full"
+                data-ai-hint={images.location.hint}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-secondary/30 hidden lg:block" />
             </div>
-          </CardContent>
-        </Card>
+          </Reveal>
+
+          <Reveal direction="right" delay={0.3} className="lg:col-span-5">
+            <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full bg-card/30 backdrop-blur-sm border border-border/30 rounded-sm lg:rounded-l-none lg:border-l-0">
+              <h3 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-5 leading-tight">
+                Your Gateway to{' '}
+                <span className="text-gradient-gold">Adventure</span>
+              </h3>
+              <p className="text-muted-foreground font-light leading-relaxed mb-8">
+                Whether you seek bustling markets, historic sites, or chic cafes, the best of Kampala is just moments away.
+              </p>
+
+              <StaggerReveal className="space-y-5 mb-10" stagger={0.1}>
+                {landmarks.map((landmark, index) => (
+                  <StaggerItem key={index}>
+                    <div className="flex items-center justify-between py-3 border-b border-border/30 last:border-0">
+                      <span className="font-medium text-foreground/90">{landmark.name}</span>
+                      <span className="text-sm text-muted-foreground">{landmark.distance}</span>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerReveal>
+
+              <MagneticButton
+                href="https://www.google.com/maps/search/?api=1&query=Purple+Deluxe+Apartments+Kyanja+Kampala"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground text-sm font-medium rounded-full shadow-lg shadow-accent/20 hover:bg-accent/90 transition-colors duration-300"
+              >
+                <MapPin className="w-4 h-4" />
+                Get Directions
+                <ArrowRight className="w-4 h-4" />
+              </MagneticButton>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
