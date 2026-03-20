@@ -1,6 +1,6 @@
 # Purple Deluxe Apartments
 
-A luxury serviced apartment website for [Purple Deluxe Apartments](https://purpledeluxeapartments.com), located in Kyanja, Kampala, Uganda.
+A luxury serviced apartment website for Purple Deluxe Apartments, located in Kyanja, Kampala, Uganda.
 
 ## Tech Stack
 
