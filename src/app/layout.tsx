@@ -1,9 +1,24 @@
 import type {Metadata} from 'next';
+import { Playfair_Display, DM_Sans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://purpledeluxeapartments.com'),
@@ -17,7 +32,7 @@ export const metadata: Metadata = {
     siteName: 'Purple Deluxe Apartments',
     images: [
       {
-        url: 'https://i.imgur.com/x0TA3So.jpeg', // Using a real image for better sharing
+        url: 'https://i.imgur.com/x0TA3So.jpeg',
         width: 1200,
         height: 630,
         alt: 'Luxury apartment exterior of Purple Deluxe Apartments',
@@ -44,7 +59,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={cn("font-sans antialiased min-h-screen flex flex-col")}>
+      <body className={cn(
+        playfair.variable,
+        dmSans.variable,
+        "font-body antialiased min-h-screen flex flex-col bg-background text-foreground"
+      )}>
+        <div className="grain-overlay" aria-hidden="true" />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

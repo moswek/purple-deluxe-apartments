@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 const socialLinks = [
   { href: '#', icon: Facebook },
@@ -10,92 +10,104 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-    { href: '/', label: 'Home' },
-    { href: '#suites', label: 'Suites' },
-    { href: '#amenities', label: 'Amenities' },
+  { href: '/', label: 'Home' },
+  { href: '#suites', label: 'Suites' },
+  { href: '#amenities', label: 'Amenities' },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Logo and Tagline */}
-          <div className="flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+    <footer className="bg-background border-t border-border/30">
+      <div className="container-luxury py-20 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <Link href="/" className="inline-block mb-6" aria-label="Purple Deluxe Apartments Home">
               <Image
                 src="https://i.imgur.com/VZUjDDF.png"
                 alt="Purple Deluxe Apartments Logo"
-                width={220}
-                height={44}
+                width={200}
+                height={40}
               />
             </Link>
-            <p className="text-sm max-w-xs text-primary-foreground/80">
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Your exclusive royal sanctuary in Kyanja, Kampala. Unforgettable luxury awaits.
             </p>
           </div>
-          
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+
+          <div className="lg:col-span-3">
+            <h3 className="text-xs tracking-[0.2em] uppercase text-accent font-medium mb-6">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-primary-foreground/80 hover:text-white transition-colors">
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          
-          {/* Contact Us */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Contact Us</h3>
-            <div className="text-sm space-y-3 text-primary-foreground/80">
+
+          <div className="lg:col-span-4">
+            <h3 className="text-xs tracking-[0.2em] uppercase text-accent font-medium mb-6">
+              Contact Us
+            </h3>
+            <div className="space-y-3 text-sm text-muted-foreground">
               <p>Kyanja, Kampala, Uganda</p>
               <p>
-                Email: <a href="mailto:reservations@purpledeluxeapartments.com" className="hover:text-white transition-colors">reservations@purpledeluxeapartments.com</a>
+                <a
+                  href="mailto:reservations@purpledeluxeapartments.com"
+                  className="hover:text-foreground transition-colors duration-300"
+                >
+                  reservations@purpledeluxeapartments.com
+                </a>
               </p>
               <p>
-                Phone:{' '}
-                <a href="tel:+256780876369" className="hover:text-white transition-colors">
+                <a
+                  href="tel:+256780876369"
+                  className="hover:text-foreground transition-colors duration-300"
+                >
                   +256-780-PURPLE
                 </a>
               </p>
             </div>
-          </div>
 
-          {/* Follow Us */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Follow Us</h3>
-            <div className="flex items-center space-x-4">
-                {socialLinks.map((social, index) => (
-                    <Link key={index} href={social.href} className="text-primary-foreground/80 hover:text-white transition-colors">
-                        <social.icon className="h-6 w-6" />
-                        <span className="sr-only">{social.icon.displayName}</span>
-                    </Link>
-                ))}
+            <div className="flex items-center gap-4 mt-8">
+              {socialLinks.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href}
+                  className="w-9 h-9 rounded-full border border-border/40 flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/40 transition-all duration-300"
+                  aria-label={social.icon.displayName}
+                >
+                  <social.icon className="w-3.5 h-3.5" />
+                </Link>
+              ))}
             </div>
           </div>
-
         </div>
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-sm text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Purple Deluxe Apartments. All Rights Reserved.</p>
-          <p className="text-xs mt-4">
-            Designed & Managed by{' '}
-            <a
-              href="https://digitaltalisman.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold"
-            >
-              <span className="inline-block bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-fuchsia-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-wave">
+
+        <div className="mt-16 pt-8 border-t border-border/20">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-muted-foreground/60">
+              &copy; {new Date().getFullYear()} Purple Deluxe Apartments. All Rights Reserved.
+            </p>
+            <p className="text-xs text-muted-foreground/60">
+              Designed & Managed by{' '}
+              <a
+                href="https://digitaltalisman.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent/80 hover:text-accent transition-colors font-medium"
+              >
                 Digital Talisman
-              </span>
-              <span className="inline-block"> 🇺🇬</span>
-            </a>
-          </p>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
