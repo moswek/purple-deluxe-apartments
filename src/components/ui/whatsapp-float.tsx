@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 
 export function WhatsAppFloat() {
   const phoneNumber = '256780876369';
+  const message = encodeURIComponent('Hello Purple Deluxe Apartments, I would like to enquire about availability and booking.');
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
     <motion.a
-      href={`https://wa.me/${phoneNumber}`}
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
