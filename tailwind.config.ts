@@ -127,7 +127,7 @@ export default {
         'scale-in': 'scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         shimmer: 'shimmer 2s linear infinite',
         float: 'float 6s ease-in-out infinite',
-        'gradient-wave': 'gradient-wave 3s ease-in-out infinite alternate',
+        'gradient-wave': 'gradient-wave 3s linear infinite',
       },
       transitionTimingFunction: {
         'luxury': 'cubic-bezier(0.16, 1, 0.3, 1)',
